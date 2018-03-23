@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 05 - Employee Management Application</title>
+    <style>
+    body {
+        width: 50%;
+    }
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    div {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="add-employee">
+        <form>
+            <label for="addName">Name</label>
+            <input type="text" id="addName" name="name" placeholder="Your name.." />
+
+            <label for="addTitle">Title</label>
+            <input type="text" id="addTitle" name="title" placeholder="Your title.." />
+
+            <label for="addExtension">Extension</label>
+            <input type="text" id="addExtension" name="extension" placeholder="Your extension.." />
+
+            <input type="submit" value="Submit" id="addEmployeeBtn" />
+        </form>
+    </div>
+    <h3>Showing <strong id="numbersOfEmployees"></strong> Employees</h3>
+    <table width="100%" id="listOfEmployees" border="3">
+        <thead>
+        <tr align="center">
+          <th>Name</th>
+          <th>Title</th>
+          <th>Extension</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="js/employee-management.js"></script>
+</body>
+</html>
