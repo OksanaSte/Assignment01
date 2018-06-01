@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vecta Corp.</title>
+    <!-- jQuery library reference. Latest is always referenced from jQuery's CDN. -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300,400,600');
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+p {
+  font-size: 1.1em;
+  margin: 1em 0;
+}
+.description {
+  margin: 1em auto 2.25em;
+}
+body {
+  width: 50%;
+  min-width: 300px;
+  max-width: 400px;
+  margin: 1.5em auto;
+  color: #333;
+}
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  font-size: 2.5em;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul .inner {
+  padding-left: 1em;
+  overflow: hidden;
+  display: none;
+}
+ul .inner.show {
+  /*display: block;*/
+}
+ul li {
+  margin: .5em 0;
+}
+ul li a.toggle {
+  width: 100%;
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fefefe;
+  padding: .75em;
+  border-radius: 6px;
+  transition: background .3s ease;
+}
+ul li a.toggle:before {
+    content: '+';
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 8px;
+}
+ul li a.toggle.active {
+    border-radius: 6px 6px 0 0;
+    background: rgba(0, 0, 0, 1);
+}
+ul li a.toggle.active:before {
+    content: '-';
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 8px;
+}
+ul li a.toggle:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+    </style>
+</head>
+<body>
+<h1>Stetson Corporation &reg; is presenting Accordion!</h1>
+
+<p class="description">
+  You could simply toggle the .show class (if display: block is uncommented in the CSS) in JavaScript, but you'll lose the animation.
+</p>
+
+<ul class="accordion">
+  <li>
+    <a class="toggle" href="javascript:void(0);">Item 1</a>
+    <ul class="inner">
+      <li>Option 1</li>
+      <li>Option 2</li>
+      <li>Option 3</li>
+    </ul>
+  </li>
+  
+  <li>
+    <a class="toggle" href="javascript:void(0);">Item 2</a>
+    <ul class="inner">
+      <li>Option 1</li>
+      <li>Option 2</li>
+      <li>Option 3</li>
+    </ul>
+  </li>
+  
+  <li>
+    <a class="toggle" href="javascript:void(0);">Item 3</a>
+    <ul class="inner">
+     <li>Option 1</li>
+     <li>Option 2</li>
+      <li>Option 3</li>
+    </ul>
+  </li>
+  
+  <li>
+    <a class="toggle" href="javascript:void(0);">Item 4</a>
+    <ul class="inner">
+    <li>Option 1</li>
+      
+      <li>Option 2</li>
+      
+      <li>Option 3</li>
+    </ul>
+  </li>
+</ul>
+  <script>
+      $('.toggle').click(function(e) {
+  	e.preventDefault();
+  
+    var $this = $(this);
+  
+    if ($this.next().hasClass('show')) {
+        $this.removeClass('active');
+        $this.next().removeClass('show');
+        $this.next().slideUp(350);
+    } else {
+        $this.parent().parent().find('li a').removeClass('active');
+        $this.parent().parent().find('li .inner').removeClass('show');
+        $this.parent().parent().find('li .inner').slideUp(350);
+        $this.next().toggleClass('show');
+        $this.toggleClass('active');
+        $this.next().slideToggle(350);
+    }
+      
+          
+});
+  </script>  
+</body>
+</html>
