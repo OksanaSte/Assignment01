@@ -1,0 +1,48 @@
+body {
+   background-image: url("hot-pizza-pepperoni-sausage-dark-background-top-view-black-table-copy-space-84098370.jpg");
+   background-color: black;
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
+   color: lightgreen;
+   font-size: 20px;
+}
+input,
+select {
+    background-color: beige;
+    padding: 8px;
+    border: 0;
+}
+select, 
+.btn-secondary {
+    width: 185px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+.btn-secondary {
+    background-color: lightgreen;
+}
+fieldset {
+    border: 0;
+}
+.build-pizza {
+    position: relative
+}
+.your-order {
+/*    border: 1px solid rgba(0,0,0, .5);*/
+    font-size: 19px;
+/*    line-height: 100px;*/
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    width: 150px;
+/*    height: 100px;*/
+    text-align: center;
+}
+label {
+    text-shadow: 2px 2px 2px #000;
+}
+.submitBtn {
+    border: solid 1px grey;
+    width: 185px;
+}
