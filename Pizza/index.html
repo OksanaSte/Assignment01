@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  
+<form name="myForm" action="/" onsubmit="return validateForm()" method="GET">
+  <fieldset>
+    <legend><b>Delivery Address</b></legend><br>
+    <div class="name">
+    <label for="name">Please enter your first and last name.*</label><br><br>
+    <input class="form-control" name="name" rows="1" placeholder="Your first and last name" data-type="text" /><br><br>
+  </div>
+   <div class="form-group">
+    <label for="typeOfAddress">Please choose a type of address.*</label><br><br>
+    <select class="form-control" id="typeOfAddress">
+      <option>Select your type...</option>
+      <option>House</option>
+      <option>Apartment</option> 
+      <option>Business</option>
+      <option>Campus</option>
+      <option>Hotel</option>
+      <option>Dorm</option>
+      <option>Other</option>
+    </select>
+    <br/>
+    <input id="otherType" type="text" name="other" data-type="text" placeholder="Enter your address type" style="display: none" />
+    <br/>
+  </div>
+    <div class="streetAddress">
+    <label for="streetAddress">Please enter your street address.*</label><br><br>
+    <input class="form-control" id="streetAddress" rows="1" name="address" placeholder="Enter street address" /><br><br>
+  </div>
+  <div class="aptNumber">
+    <label for="aptNumber">Please enter your apt, suite or room number(optional).</label><br><br>
+    <input class="form-control" id="aptNumber" rows="1" name="aptNumber" placeholder="Enter apt number" data-type="number" /><br><br>
+  </div>
+  <div class="city">
+    <label for="city">Please enter your city.*</label><br><br>
+    <input class="form-control" id="city" rows="1" name="city" placeholder="Enter your city" data-type="text" /><br><br>
+  </div>
+  <div class="state">
+    <label for="state">Please enter your state.*</label><br><br>
+    <input class="form-control" id="state" rows="1" name="state" placeholder="Enter your state" data-type="text" data-limit="2" /><br><br>
+  </div>
+  <div class="zip">
+    <label for="zip">Please enter your zip code.*</label><br><br>
+    <input class="form-control" id="zip" rows="1" name="zip" placeholder="Enter your zip" data-type="number" data-limit="5" /><br><br>
+  </div>
+  <div class="phoneNumber">
+    <label for="phoneNumber">Please enter your phone number.*</label><br><br>
+    <input class="form-control" id="phoneNumber" rows="1" name="number" placeholder="Enter phone number" data-type="number" data-limit="10" /><br><br>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">Please enter your email address.*</label><br><br>
+    <input class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email" placeholder="Enter email" data-type="email"><br>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br>
+  </div> 
+  </fieldset>
+  <br>
+  <fieldset class="build-pizza">
+    <legend><b>Build Your Pizza</b></legend><br>
+    <legend>What kind of dough would you like?</legend><br>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="0">
+        Hand Tossed
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="1">
+        Thin Crust
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="2">
+        New York Style
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="3">
+        Gluten Free
+        </label><br><br>
+    </div>   
+    <div class="" id="pizzaChoice"></div><br/>
+    <div class="form-group">
+        <label for="cheese">How much cheese would you like on your pizza?</label><br><br>
+        <select class="form-control" id="cheese" onchange="calculateTotal()" disabled>
+          <option selected value="0">Normal (default): no charge</option>
+          <option value="0">Light: no charge</option>
+          <option value="2.99">Extra: $2.99</option> 
+          <option value="3.99">Double: $3.99</option>
+        </select>
+        <br/>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="sauce">What sauce would you like on your pizza?</label><br><br>
+        <select class="form-control" id="sauce" onchange="calculateTotal()" disabled>
+          <option selected value="0">Regular Tomato: no charge</option>
+          <option value="0.99">Hearty Tomato: $.99</option>
+          <option value="1.99">BBQ Sauce: $1.99</option> 
+        </select>
+        <br/>
+    </div>
+    <br>
+    <div class="form-check toppings">
+       <label for="toppings">Please choose your toppings.</label><br><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Pepperoni $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Sausage $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Ham $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Bacon $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Salami $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Peppers $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Olives $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Jalapenos $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Mushrooms $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Pineapple $.99
+            </label><br>
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="toppings" id="optionsRadios2" value="0.99" disabled>
+            Onion $.99
+            </label><br><br>
+    </div>
+    <div class="your-order">Your order: $<span id="your-total">0</span></div>
+    <button type="button" class="btn btn-secondary btn-confirmation" onclick="confirmationBox()">Finished Building Pizza</button>
+</fieldset>
+<br>   
+
+<fieldset id="paymentInfo" class="paymentInfo" style="display: none;">
+    <legend><b>Billing Information</b></legend><br>
+    <label for="toppings"><b>Please enter your billing address.</b></label><br><br>
+    <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="sameAddress" id="sameAddress-billing" onchange="copyAddress(this)">
+            Same as delivery address.
+            </label><br><br>
+      <div class="name">
+    <label for="name">Please enter your first and last name.*</label><br><br>
+    <input class="form-control" name="name" rows="1" placeholder="Your first and last name" data-type="text" /><br><br>
+  </div>
+    <div class="streetAddress">
+    <label for="streetAddress">Please enter your street address.*</label><br><br>
+    <input class="form-control" id="streetAddress-billing" rows="1" name="address" placeholder="Enter street address" /><br><br>
+  </div>
+  <div class="aptNumber">
+    <label for="aptNumber">Please enter your apt, suite or room number(optional).</label><br><br>
+    <input class="form-control" id="aptNumber-billing" rows="1" name="aptNumber" placeholder="Enter apt number" data-type="number" /><br><br>
+  </div>
+  <div class="city">
+    <label for="city">Please enter your city.*</label><br><br>
+    <input class="form-control" id="city-billing" rows="1" name="city" placeholder="Enter your city" data-type="text" /><br><br>
+  </div>
+  <div class="state">
+    <label for="state">Please enter your state.*</label><br><br>
+    <input class="form-control" id="state-billing" rows="1" name="state" placeholder="Enter your state" data-type="text" data-limit="2" /><br><br>
+  </div>
+  <div class="zip">
+    <label for="zip">Please enter your zip code.*</label><br><br>
+    <input class="form-control" id="zip-billing" rows="1" name="zip" placeholder="Enter your zip" data-type="number" data-limit="5" /><br><br>
+  </div>
+    <legend><b>Credit Card Information:</b></legend><br>  
+   <div class="cc">
+    <label for="cc">Please enter your credit card number.*</label><br><br>
+    <input class="form-control" id="cc" rows="1" name="cc" placeholder="Enter your credit card number" data-type="number" data-cc="true" /><br><br>
+  </div> 
+  <div class="cvc">
+    <label for="cvc">Please enter your CVC code.*</label><br><br>
+    <input class="form-control" id="cvc" rows="1" name="cvc" placeholder="Enter your CVC code" data-type="number" data-limit="3" data-cc="true" /><br><br>
+  </div> 
+  <div class="form-group">
+    <label for="expirationDate" >Please enter your card expiration date.*</label>
+    <br /><br />
+    <label for="expirationMonth" style="display: inline-block">
+    <select class="form-control" id="expirationMonth">
+      <option>Select a month</option>
+      <option value="0">January</option>
+      <option value="1">February</option> 
+      <option value="2">March</option>
+      <option value="3">April</option>
+      <option value="4">May</option>
+      <option value="5">June</option>
+      <option value="6">July</option>
+      <option value="7">August</option>
+      <option value="8">September</option>
+      <option value="9">October</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+    </label>
+    <label for="expirationYear" style="display: inline-block">
+    <select class="form-control" id="expirationYear">
+      <option>Select a year</option>
+      <option value="2018">2018</option>
+      <option value="2019">2019</option> 
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+    </select>
+    </label><br><br>
+  </div>
+  </fieldset>
+<br>
+<input type="submit" value="Submit" class="submitBtn">
+
+</form>
+<script src="script.js"></script>
+</body>
+</html>
